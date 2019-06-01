@@ -5,7 +5,7 @@ class Filter {
     protected $options = [];
     protected $defaultOptions = [];
 
-    protected function getFieldName($field): string
+    protected function getFieldName($field)
     {
         $overwrite = $this->options['field'] ?? null;
         if (empty($overwrite)) {
