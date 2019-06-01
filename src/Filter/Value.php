@@ -5,11 +5,12 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Value extends Filter implements FilterInterface {
     protected $defaultOptions = [
-        'field' => ''
+        'field' => '',
+        'operator' => '='
     ];
     public function process(Builder $builder, $field, $value)
     {
         $field = $this->getFieldName($field);
-        $builder->where($field, $value);
+        $builder->where($field, $this->options['operator'], $value);
     }
 }
