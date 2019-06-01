@@ -4,6 +4,12 @@ namespace Search;
 use Illuminate\Support\Facades\Input;
 
 class QueryParser {
+
+    /**
+     * @param Searchable $search
+     * @param null $post
+     * @return array
+     */
     public static function parse(Searchable $search, $post = null)
     {
         if (is_null($post)) {
