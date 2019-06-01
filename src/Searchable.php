@@ -20,13 +20,13 @@ class Searchable {
                 continue;
             }
 
-            $builder = $this->createSeachField($builder, $field, $query[$field], $options);
+            $builder = $this->createSearchField($builder, $field, $query[$field], $options);
         }
 
         return $builder;
     }
 
-    private function createSeachField(Builder $builder, $field, $value, $options)
+    private function createSearchField(Builder $builder, $field, $value, $options)
     {
         switch ($options['type']) {
             case 'text':
