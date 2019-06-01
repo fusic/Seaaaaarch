@@ -4,6 +4,7 @@ namespace Search;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Input;
+use Search\Filter\FilterFactory;
 
 class Searchable {
 
@@ -15,12 +16,21 @@ class Searchable {
             $query = Input::query();
         }
 
-        foreach ($this->params as $field => $options) {
-            if (!isset($query[$field]) || $query[$field] == "") {
+        foreach ($this->getParams() as $field => $options) {
+            $value = $query[$field] ?? null;
+            if (is_null($value)) {
+                continue;
+            }
+            if ($query[$field] == "") {
                 continue;
             }
 
-            $builder = $this->createSearchField($builder, $field, $query[$field], $options);
+            //if ($field == 'hoge') {
+            $filter = FilterFactory::create($options['type']);
+            $filter->setOptions($options);
+            $filter->process($builder, $field, $value);
+            //}
+            //$builder = $this->createSearchField($builder, $field, $query[$field], $options);
         }
 
         return $builder;
