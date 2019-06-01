@@ -9,9 +9,11 @@ class Searchable {
 
     protected $params = [];
 
-    public function process(Builder $builder)
+    public function process(Builder $builder, $query = null)
     {
-        $query = Input::query();
+        if (is_null($query)) {
+            $query = Input::query();
+        }
 
         foreach ($this->params as $field => $options) {
             if (!isset($query[$field]) || $query[$field] == "") {
@@ -21,7 +23,7 @@ class Searchable {
             $builder = $this->createSeachField($builder, $field, $query[$field], $options);
         }
 
-            return $builder;
+        return $builder;
     }
 
     private function createSeachField(Builder $builder, $field, $value, $options)
@@ -59,5 +61,15 @@ class Searchable {
         }
 
         return $builder;
+    }
+
+    /**
+     * getParams
+     *
+     * @return array
+     */
+    public function getParams(): array
+    {
+        return $this->params;
     }
 }
