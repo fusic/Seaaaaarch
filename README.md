@@ -1,5 +1,7 @@
 # Seaaaaarch
 
+![CircleCI](https://img.shields.io/circleci/build/github/fusic/Seaaaaarch.svg)
+
 ## Install
 
 ```
