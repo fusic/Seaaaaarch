@@ -7,7 +7,7 @@ class QueryParser {
 
     /**
      * @param Searchable $search
-     * @param null $post
+     * @param array|null $post
      * @return array
      */
     public static function parse(Searchable $search, $post = null)
