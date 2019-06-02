@@ -24,7 +24,9 @@ commands:
           key: composer-v1-{{ checksum "composer.json" }}
           paths:
             - vendor
-      - run: vendor/bin/phpunit --coverage-html=$CIRCLE_ARTIFACTS
+      - run: vendor/bin/phpunit --coverage-html /tmp/artifacts
+      - store_artifacts:
+          path: /tmp/artifacts
 
 jobs:
   php73:
