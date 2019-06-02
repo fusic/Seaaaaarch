@@ -5,7 +5,7 @@ use Tests\app\Search\UserCallbackSearch;
 use Tests\app\User;
 use Tests\TestCase;
 
-class ValueTest extends TestCase
+class CallbackTest extends TestCase
 {
     private $faker = [];
     const USER_NUM = 20;
