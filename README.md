@@ -1,5 +1,8 @@
 # Seaaaaarch
 
+![CircleCI](https://img.shields.io/circleci/build/github/fusic/Seaaaaarch.svg)
+![Scrutinizer code quality (GitHub/Bitbucket)](https://img.shields.io/scrutinizer/quality/g/fusic/Seaaaaarch.svg)
+
 ## Install
 
 ```
