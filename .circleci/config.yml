@@ -11,6 +11,9 @@ executors:
     docker:
       - image: circleci/php:7.1
 
+orbs:
+  codecov: codecov/codecov@1.0.4
+
 commands:
   composer_install:
     steps:
@@ -24,9 +27,12 @@ commands:
           key: composer-v1-{{ checksum "composer.json" }}
           paths:
             - vendor
-      - run: vendor/bin/phpunit --coverage-html /tmp/artifacts
-      - store_artifacts:
-          path: /tmp/artifacts
+      # - run: vendor/bin/phpunit --coverage-html /tmp/artifacts
+      - run: vendor/bin/phpunit --coverage-clover=coverage.xml
+      - codecov/upload:
+        file: ./coverage.xml
+      # - store_artifacts:
+      #    path: /tmp/artifacts
 
 jobs:
   php73:
