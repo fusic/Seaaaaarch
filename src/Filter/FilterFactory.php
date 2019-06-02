@@ -1,6 +1,8 @@
 <?php
 namespace Search\Filter;
 
+use Illuminate\Support\Str;
+
 class FilterFactory {
     public static function create($name) : FilterInterface
     {
@@ -8,7 +10,7 @@ class FilterFactory {
             return new $name();
         }
 
-        $class = studly_case($name);
+        $class = Str::studly($name);
         $class = __NAMESPACE__ . '\\' . $class;
 
         return new $class();
