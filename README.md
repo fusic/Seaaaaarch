@@ -33,26 +33,30 @@ class HogeSearch extends Searchable
     public function __construct()
     {
         $this->params = [
-            'name' => [
-                'type' => 'text'
+            'example1' => [
+                'type' => 'value',
+                'operator' => '='
             ],
-            'start_date' => [
-                'type' => 'date',
-                'comparison' => '>='
+            'example2' => [
+                'type' => 'like',
+                'field' => 'name'
             ],
-            'end_date' => [
-                'type' => 'date',
-                'comparison' => '<='
+            'example3' => [
+                'type' => 'like',
+                'field' => ['name', 'email']
             ],
-            'category_id' => [
-                'type' => 'integer'
-            ],
-            'public_flg' => [
-                'type' => 'bool'
-            ],
-            'body' => [
+            'example4' => [
                 'type' => 'callback',
-                'method' => 'example'
+                'method' => function (Builder $builder, $key, $value) {
+                    $builder->where('name', $value);
+                }
+            ],
+            'example5' => [
+                'type' => 'callback',
+                'method' => [$this, 'example']
+            ],
+            'example6' => [
+                'type' => CustomFilter::class
             ]
         ];
     }
@@ -60,8 +64,8 @@ class HogeSearch extends Searchable
 
     public function example(Builder $builder, $key, $value)
     {
-        $body = trim($body);
-        $builder->where($key, 'like', $value);
+        $body = trim($value);
+        $builder->where($key, 'like', $body);
         
         return $builder;
     }
