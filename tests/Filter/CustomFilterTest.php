@@ -5,7 +5,7 @@ use Tests\app\Search\UserCustomSearch;
 use Tests\app\User;
 use Tests\TestCase;
 
-class ValueTest extends TestCase
+class CustomFilterTest extends TestCase
 {
     private $faker = [];
     const USER_NUM = 20;
