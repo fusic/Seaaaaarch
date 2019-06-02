@@ -30,8 +30,8 @@ class SearchServiceProvider extends ServiceProvider
 
     protected function registerMacro()
     {
-        Builder::macro('search', function (Searchable $search) {
-            return $search->process($this);
+        Builder::macro('search', function (Searchable $search, $query = null) {
+            return $search->process($this, $query);
         });
     }
 }
