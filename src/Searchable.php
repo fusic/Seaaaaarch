@@ -4,6 +4,7 @@ namespace Search;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Input;
+use Search\Filter\Filter;
 use Search\Filter\FilterFactory;
 
 class Searchable {
@@ -15,6 +16,8 @@ class Searchable {
         if (is_null($query)) {
             $query = Input::query();
         }
+
+        Filter::setQueryParams($query);
 
         foreach ($this->getParams() as $field => $options) {
             $value = $query[$field] ?? null;
