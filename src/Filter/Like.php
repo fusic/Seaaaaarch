@@ -19,7 +19,7 @@ class Like extends Filter implements FilterInterface {
         $value = $this->generateLikeValue($value);
 
         $builder->where(function($query) use ($fields, $value) {
-            foreach($fields as $field) {
+            foreach ($fields as $field) {
                 $query->orWhere($field, $this->options['operator'], $value);
             }
         });
