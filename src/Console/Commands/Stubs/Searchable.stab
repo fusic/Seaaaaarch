@@ -1,0 +1,14 @@
+<?php
+namespace App\Search;
+
+use Search\Searchable;
+
+class DummyClass extends Searchable
+{
+    public function __construct()
+    {
+        $this->params = [
+            //
+        ];
+    }
+}
