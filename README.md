@@ -20,6 +20,10 @@ Search\Providers\SearchServiceProvider::class
 
 ## Create Searchable
 
+```
+php artisan make:searchable HogeSearch
+```
+
 app\Search\HogeSearch.php
 ```
 <?php
