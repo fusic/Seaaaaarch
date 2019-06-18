@@ -4,7 +4,7 @@ namespace Search\Providers;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\ServiceProvider;
-use Search\Console\Commands\SearchGenerator;
+use Search\Console\Commands\SearchableGenerator;
 use Search\Searchable;
 
 class SearchServiceProvider extends ServiceProvider
@@ -40,7 +40,7 @@ class SearchServiceProvider extends ServiceProvider
     protected function registerCommand()
     {
         $this->app->singleton('make.searchable', function($app) {
-            return new SearchGenerator($app['files']);
+            return new SearchableGenerator($app['files']);
         });
 
         $this->commands([

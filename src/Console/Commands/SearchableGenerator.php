@@ -4,7 +4,7 @@ namespace Search\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 
-class SearchGenerator extends GeneratorCommand
+class SearchableGenerator extends GeneratorCommand
 {
     /**
      * The name and signature of the console command.
