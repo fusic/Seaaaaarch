@@ -65,7 +65,7 @@ $this->params = [
 | ---- | ---- | ---- |
 |  type  |  value  |  〇  |
 |  field  |  検索対象のDBカラム名 <br >※デフォルトはQueryStringのキー名<br >※配列を指定することで複数カラムに対して検索  |  -  |
-|  operator  |  SQLの演算子<br >※デフォルトは 「=」 |  -  |
+|  operator  |  SQLの演算子(=<>等)<br >※デフォルトは 「=」 |  -  |
 
 
 ### Like
