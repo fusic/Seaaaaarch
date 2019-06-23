@@ -4,6 +4,7 @@ namespace Search\Providers;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\ServiceProvider;
+use Search\Console\Commands\FilterGenerator;
 use Search\Console\Commands\SearchableGenerator;
 use Search\Searchable;
 
@@ -42,9 +43,13 @@ class SearchServiceProvider extends ServiceProvider
         $this->app->singleton('make.searchable', function($app) {
             return new SearchableGenerator($app['files']);
         });
+        $this->app->singleton('make.filter', function($app) {
+            return new FilterGenerator($app['files']);
+        });
 
         $this->commands([
-            'make.searchable'
+            'make.searchable',
+            'make.filter',
         ]);
     }
 }
