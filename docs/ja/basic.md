@@ -33,7 +33,7 @@ class UserSearch extends Searchable
     }
 }
 ```
-※Searchableの詳細な設定項目については[Searchableの設定](/docs/settings.md)を参照してください。
+※Searchableの詳細な設定項目については[Searchableの設定](/docs/ja/settings.md)を参照してください。
 
 ## bladeの準備
 

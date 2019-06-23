@@ -18,5 +18,6 @@ Search\Providers\SearchServiceProvider::class
 
 ## 使い方
 
-1. [基本の使い方](/docs/basic.md)
-2. [Searchableの設定](/docs/settings.md)
+1. [基本の使い方](/docs/ja/basic.md)
+2. [Searchableの設定](/docs/ja/settings.md)
+3. [Filterの作成](/docs/ja/filter.md)
