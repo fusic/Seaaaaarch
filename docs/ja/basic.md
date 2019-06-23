@@ -3,7 +3,7 @@
 ## Searchableの作成
 
 `Seaaaaach`  は `Searchableクラス` を作成して、 Searchableクラスに検索条件の設定を行います。  
-以下のコマンドを実行することで `App\Search` 以下に`Searchableクラス` が作成されます。
+以下のコマンドを実行することで `App\Search` に `Searchableクラス` が作成されます。
 
 ```php
 php artisan make:searchable UsersSearch
