@@ -20,6 +20,9 @@
     <filter>
         <whitelist>
             <directory suffix=".php">./src</directory>
+            <exclude>
+                     <directory>./src/Providers</directory>
+            </exclude>
         </whitelist>
     </filter>
     <php>
