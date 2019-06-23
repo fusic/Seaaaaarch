@@ -24,69 +24,7 @@ Search\Providers\SearchServiceProvider::class
 php artisan make:searchable HogeSearch
 ```
 
-app\Search\HogeSearch.php
-```
-<?php
+## Document
 
-namespace App\Search;
-
-use Illuminate\Database\Eloquent\Builder;
-use Search\Searchable;
-
-class HogeSearch extends Searchable
-{
-    public function __construct()
-    {
-        $this->params = [
-            'example1' => [
-                'type' => 'value',
-                'operator' => '='
-            ],
-            'example2' => [
-                'type' => 'like',
-                'field' => 'name'
-            ],
-            'example3' => [
-                'type' => 'like',
-                'field' => ['name', 'email']
-            ],
-            'example4' => [
-                'type' => 'callback',
-                'method' => function (Builder $builder, $key, $value) {
-                    $builder->where('name', $value);
-                }
-            ],
-            'example5' => [
-                'type' => 'callback',
-                'method' => [$this, 'example']
-            ],
-            'example6' => [
-                'type' => CustomFilter::class
-            ]
-        ];
-    }
-
-
-    public function example(Builder $builder, $key, $value)
-    {
-        $body = trim($value);
-        $builder->where($key, 'like', $body);
-        
-        return $builder;
-    }
-}
-```
-
-# usage
-
-```
-ExampleMode::search(new HogeSearch())
-  ->whre('hoge', 'fuga')
-```
-
-or
-
-```
-ExampleMode::whre('hoge', 'fuga')
-  ->search(new HogeSearch())
-```
+- [Japanese](/docs/ja/README.md)
+- English
