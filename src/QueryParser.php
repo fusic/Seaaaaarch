@@ -1,7 +1,7 @@
 <?php
 namespace Search;
 
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 
 class QueryParser {
 
@@ -13,7 +13,7 @@ class QueryParser {
     public static function parse(Searchable $search, $post = null)
     {
         if (is_null($post)) {
-            $post = Input::input();
+            $post = Request::input();
         }
 
         $list = [];
