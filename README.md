@@ -7,7 +7,7 @@
 ## Install
 
 ```
-composer require fusic/Seaaaaarch
+composer require fusic/seaaaaarch
 ```
 
 ## Setting

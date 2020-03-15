@@ -16,7 +16,7 @@ namespace App\Search;
 
 use Search\Searchable;
 
-class UserSearch extends Searchable
+class UsersSearch extends Searchable
 {
     public function __construct()
     {
@@ -82,8 +82,8 @@ searchに対して `Searchableインスタンス` を渡すことで、 Searchab
 
 ```php
 public function index() {
-    UserModel::search(new UserSearch())->where('example', 'test');
+    UserModel::search(new UsersSearch())->where('example', 'test');
     // or
-    UserModel::where('example', 'test')->search(new UserSearch())
+    UserModel::where('example', 'test')->search(new UsersSearch())
 }
 ```
