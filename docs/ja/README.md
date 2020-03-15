@@ -5,7 +5,7 @@
 ## インストール
 
 ```php
-composer require fusic/Seaaaaarch
+composer require fusic/seaaaaarch
 ```
 
 ### Providersへの登録
