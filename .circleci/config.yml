@@ -1,6 +1,9 @@
 version: 2.1
 
 executors:
+  php7_4:
+    docker:
+      - image: circleci/php:7.4
   php7_3:
     docker:
       - image: circleci/php:7.3
@@ -35,6 +38,10 @@ commands:
       #    path: /tmp/artifacts
 
 jobs:
+  php74:
+    executor: php7_4
+    steps:
+      - composer_install
   php73:
     executor: php7_3
     steps:
@@ -51,6 +58,7 @@ jobs:
 workflows:
   test:
     jobs:
+      - php74
       - php73
       - php72
       - php71
