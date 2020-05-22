@@ -10,6 +10,9 @@ executors:
   php7_2:
     docker:
       - image: circleci/php:7.2
+  php7_1:
+    docker:
+      - image: circleci/php:7.1
 
 orbs:
   codecov: codecov/codecov@1.0.4
@@ -47,6 +50,10 @@ jobs:
     executor: php7_2
     steps:
       - composer_install
+  php71:
+    executor: php7_1
+    steps:
+      - composer_install
 
 workflows:
   test:
@@ -54,3 +61,4 @@ workflows:
       - php74
       - php73
       - php72
+      - php71
