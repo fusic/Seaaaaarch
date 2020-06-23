@@ -74,6 +74,12 @@ public function search() {
 }
 ```
 
+## routes/web.php にルートを追加
+routes/web.php
+```
+Route::post('users/search', 'UserController@search')->name('users.search');
+```
+
 ## 検索の実行
 
 検索を実行します。  
