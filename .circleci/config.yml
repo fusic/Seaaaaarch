@@ -1,18 +1,15 @@
 version: 2.1
 
 executors:
+  php8_0:
+    docker:
+      - image: circleci/php:8.0
   php7_4:
     docker:
       - image: circleci/php:7.4
   php7_3:
     docker:
       - image: circleci/php:7.3
-  php7_2:
-    docker:
-      - image: circleci/php:7.2
-  php7_1:
-    docker:
-      - image: circleci/php:7.1
 
 orbs:
   codecov: codecov/codecov@1.0.4
@@ -38,6 +35,10 @@ commands:
       #    path: /tmp/artifacts
 
 jobs:
+  php80:
+    executor: php8_0
+    steps:
+      - composer_install
   php74:
     executor: php7_4
     steps:
@@ -46,19 +47,11 @@ jobs:
     executor: php7_3
     steps:
       - composer_install
-  php72:
-    executor: php7_2
-    steps:
-      - composer_install
-  php71:
-    executor: php7_1
-    steps:
-      - composer_install
 
 workflows:
   test:
     jobs:
+      - php80
       - php74
       - php73
-      - php72
-      - php71
+
