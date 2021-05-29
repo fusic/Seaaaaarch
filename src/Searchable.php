@@ -2,7 +2,6 @@
 
 namespace Search;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Request;
 use Search\Filter\Filter;
 use Search\Filter\FilterFactory;

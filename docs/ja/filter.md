@@ -13,14 +13,13 @@ php artisan make:filter ExampleFilter
 <?php
 namespace App\Search\Filter;
 
-use Illuminate\Database\Eloquent\Builder;
 use Search\Filter\Filter;
 use Search\Filter\FilterInterface;
 
 class ExampleFilter extends Filter implements FilterInterface {
     protected $defaultOptions = [];
 
-    public function process(Builder $builder, $field, $value)
+    public function process($builder, $field, $value)
     {
         // ここに検索条件の処理を記載します
         // 20歳以上

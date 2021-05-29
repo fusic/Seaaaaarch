@@ -1,8 +1,6 @@
 <?php
 namespace Search\Filter;
 
-use Illuminate\Database\Eloquent\Builder;
-
 class Value extends Filter implements FilterInterface {
     protected $defaultOptions = [
         'field' => '',

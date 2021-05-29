@@ -2,7 +2,6 @@
 namespace Tests\app\Search;
 
 use App\Http\Search\Filter\Hoge;
-use Illuminate\Database\Eloquent\Builder;
 use Search\Searchable;
 
 class UserLikeSearch extends Searchable
@@ -25,7 +24,7 @@ class UserLikeSearch extends Searchable
     }
 
 
-    public function example(Builder $builder, $key, $value)
+    public function example($builder, $key, $value)
     {
         $body = trim($value);
         $builder->where($key, 'like', $body);
