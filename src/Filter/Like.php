@@ -9,7 +9,7 @@ class Like extends Filter implements FilterInterface {
         'operator' => 'LIKE'
     ];
 
-    public function process(Builder $builder, $field, $value)
+    public function process($builder, $field, $value)
     {
         $fields = $this->getFieldName($field);
         if (is_string($fields)) {

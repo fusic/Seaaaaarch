@@ -8,7 +8,7 @@ class Value extends Filter implements FilterInterface {
         'field' => '',
         'operator' => '='
     ];
-    public function process(Builder $builder, $field, $value)
+    public function process($builder, $field, $value)
     {
         $field = $this->getFieldName($field);
         $builder->where($field, $this->options['operator'], $value);

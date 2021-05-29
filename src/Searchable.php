@@ -11,7 +11,7 @@ class Searchable {
 
     protected $params = [];
 
-    public function process(Builder $builder, $query = null)
+    public function process($builder, $query = null)
     {
         if (is_null($query)) {
             $query = Request::query();

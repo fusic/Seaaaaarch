@@ -9,7 +9,7 @@ class Callback extends Filter implements FilterInterface {
         'method' => ''
     ];
 
-    public function process(Builder $builder, $field, $value)
+    public function process($builder, $field, $value)
     {
         $method = $this->options['method'];
 
