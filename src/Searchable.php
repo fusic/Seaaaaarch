@@ -2,7 +2,6 @@
 
 namespace Search;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Request;
 use Search\Filter\Filter;
 use Search\Filter\FilterFactory;
@@ -11,7 +10,7 @@ class Searchable {
 
     protected $params = [];
 
-    public function process(Builder $builder, $query = null)
+    public function process($builder, $query = null)
     {
         if (is_null($query)) {
             $query = Request::query();

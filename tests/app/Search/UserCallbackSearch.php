@@ -2,7 +2,6 @@
 namespace Tests\app\Search;
 
 use App\Http\Search\Filter\Hoge;
-use Illuminate\Database\Eloquent\Builder;
 use Search\Searchable;
 
 class UserCallbackSearch extends Searchable
@@ -12,7 +11,7 @@ class UserCallbackSearch extends Searchable
         $this->params = [
             'example1' => [
                 'type' => 'callback',
-                'method' => function (Builder $builder, $key, $value) {
+                'method' => function ($builder, $key, $value) {
                     $builder->where('name', $value);
                 }
             ],
@@ -24,7 +23,7 @@ class UserCallbackSearch extends Searchable
     }
 
 
-    public function example(Builder $builder, $key, $value)
+    public function example($builder, $key, $value)
     {
         $builder->where('name', $value);
 

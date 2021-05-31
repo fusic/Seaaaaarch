@@ -2,7 +2,8 @@
 
 namespace Search\Providers;
 
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Support\ServiceProvider;
 use Search\Console\Commands\FilterGenerator;
 use Search\Console\Commands\SearchableGenerator;
@@ -33,7 +34,11 @@ class SearchServiceProvider extends ServiceProvider
 
     protected function registerMacro()
     {
-        Builder::macro('search', function(Searchable $search, $query = null) {
+
+        QueryBuilder::macro('search', function(Searchable $search, $query = null) {
+            return $search->process($this, $query);
+        });
+        EloquentBuilder::macro('search', function(Searchable $search, $query = null) {
             return $search->process($this, $query);
         });
     }

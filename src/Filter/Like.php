@@ -1,15 +1,13 @@
 <?php
 namespace Search\Filter;
 
-use Illuminate\Database\Eloquent\Builder;
-
 class Like extends Filter implements FilterInterface {
     protected $defaultOptions = [
         'field' => '',
         'operator' => 'LIKE'
     ];
 
-    public function process(Builder $builder, $field, $value)
+    public function process($builder, $field, $value)
     {
         $fields = $this->getFieldName($field);
         if (is_string($fields)) {

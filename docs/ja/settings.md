@@ -10,7 +10,6 @@ Searchableを設定することで、シンプルな検索から詳細な検索�
 
 namespace App\Search;
 
-use Illuminate\Database\Eloquent\Builder;
 use Search\Searchable;
 
 class HogeSearch extends Searchable
@@ -28,7 +27,7 @@ class HogeSearch extends Searchable
             ],
             'kana' => [
                 'type' => 'callback',
-                'method' => function (Builder $builder, $key, $value) {
+                'method' => function ($builder, $key, $value) {
                     $name = mb_convert_kana($value, 'Hc');
                     $builder->where('name', $name);
                 }
@@ -106,7 +105,7 @@ $this->params = [
 $this->params = [
     'name' => [
         'type' => 'callback',
-        'method' => function (Builder $builder, $key, $value) {
+        'method' => function ($builder, $key, $value) {
             // ここで条件を組み立てます
             $name = mb_convert_kana($value, 'Hc');
             $builder->where('name', $name);
@@ -129,7 +128,7 @@ $this->params = [
         ]
     ];
 
-    public function example(Builder $builder, $key, $value)
+    public function example($builder, $key, $value)
     {
         // ここで条件を組み立てます
         $name = mb_convert_kana($value, 'Hc');
