@@ -20,10 +20,11 @@ class Searchable {
 
         foreach ($this->getParams() as $field => $options) {
             $value = $query[$field] ?? null;
-            if (is_null($value)) {
-                continue;
+            if (is_null($value) || $value === '') {
+                $value = $options['default'] ?? null;
             }
-            if ($query[$field] == "") {
+
+            if (is_null($value)) {
                 continue;
             }
 

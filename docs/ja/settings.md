@@ -23,7 +23,8 @@ class HogeSearch extends Searchable
             ],
             'address' => [
                 'type' => 'like',
-                'field' => ['address1', 'address2']
+                'field' => ['address1', 'address2'],
+                'default' => 'default'  // （Optional）パラメータが渡ってこなかった場合に使用する値
             ],
             'kana' => [
                 'type' => 'callback',
