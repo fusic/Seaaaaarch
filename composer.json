@@ -8,7 +8,7 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^7.5|^9.0",
-        "orchestra/testbench": "^3.5|^6.9",
+        "orchestra/testbench": "^3.5|^6.9|^7.0",
         "laravel/legacy-factories": "^1.1"
     },
     "autoload": {
