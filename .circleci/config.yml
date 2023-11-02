@@ -1,6 +1,9 @@
 version: 2.1
 
 executors:
+  php8_2:
+    docker:
+      - image: circleci/php:8.2
   php8_0:
     docker:
       - image: circleci/php:8.0
