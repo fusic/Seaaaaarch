@@ -30,5 +30,13 @@ class InTest extends TestCase
 
         $user = User::search(new UserSearch(), ['email'=> $this->faker[0]->email]);
         $this->assertTrue($user->exists());
+
+        $id = $this->faker[1]->id;
+        $user = User::search(new UserSearch(), ['id' => $id]);
+        $this->assertTrue($user->exists());
+        $this->assertEquals(
+            $this->faker->where('id', $id)->count(),
+            User::whereIn('id', [$id])->count()
+        );
     }
 }

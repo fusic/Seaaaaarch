@@ -7,7 +7,7 @@ class In extends Filter implements FilterInterface {
     ];
     public function process($builder, $field, $value)
     {
-        if (is_string($value)) {
+        if (is_string($value) || is_numeric($value)) {
             $value = [$value];
         }
 
