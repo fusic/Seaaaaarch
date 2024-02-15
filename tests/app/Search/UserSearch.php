@@ -9,12 +9,15 @@ class UserSearch extends Searchable
     public function __construct()
     {
         $this->params = [
+            'id' => [
+                'type' => 'in'
+            ],
             'name' => [
                 'type' => 'value'
             ],
             'email' => [
                 'type' => 'in'
-            ]
+            ],
         ];
     }
 
