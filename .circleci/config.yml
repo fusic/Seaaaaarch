@@ -1,21 +1,18 @@
 version: 2.1
 
 executors:
+  php8_3:
+    docker:
+      - image: cimg/php:8.3
   php8_2:
     docker:
-      - image: circleci/php:8.2
+      - image: cimg/php:8.2
   php8_0:
     docker:
-      - image: circleci/php:8.0
+      - image: cimg/php:8.0
   php7_4:
     docker:
-      - image: circleci/php:7.4
-  php7_3:
-    docker:
-      - image: circleci/php:7.3
-
-orbs:
-  codecov: codecov/codecov@1.0.4
+      - image: cimg/php:7.4
 
 commands:
   composer_install:
@@ -30,14 +27,17 @@ commands:
           key: composer-v1-{{ checksum "composer.json" }}
           paths:
             - vendor
-      # - run: vendor/bin/phpunit --coverage-html /tmp/artifacts
-      - run: vendor/bin/phpunit --coverage-clover=coverage.xml
-      - codecov/upload:
-        file: ./coverage.xml
-      # - store_artifacts:
-      #    path: /tmp/artifacts
+      - run: vendor/bin/phpunit
 
 jobs:
+  php83:
+    executor: php8_3
+    steps:
+      - composer_install
+  php82:
+    executor: php8_2
+    steps:
+      - composer_install
   php80:
     executor: php8_0
     steps:
@@ -46,15 +46,11 @@ jobs:
     executor: php7_4
     steps:
       - composer_install
-  php73:
-    executor: php7_3
-    steps:
-      - composer_install
 
 workflows:
   test:
     jobs:
+      - php83
+      - php82
       - php80
       - php74
-      - php73
-
