@@ -1,6 +1,9 @@
 version: 2.1
 
 executors:
+  php8_4:
+    docker:
+      - image: cimg/php:8.4
   php8_3:
     docker:
       - image: cimg/php:8.3
@@ -30,6 +33,10 @@ commands:
       - run: vendor/bin/phpunit
 
 jobs:
+  php84:
+    executor: php8_4
+    steps:
+      - composer_install
   php83:
     executor: php8_3
     steps:
@@ -50,6 +57,7 @@ jobs:
 workflows:
   test:
     jobs:
+      - php84
       - php83
       - php82
       - php80
